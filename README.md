@@ -22,5 +22,6 @@ constants.py
 
 README.md
 ```
-    
+
+- dataset/: will contain all the data include raw and processed of the project.
 ## Citations
