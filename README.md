@@ -22,6 +22,6 @@ constants.py
 
 README.md
 ```
-
-- dataset/: will contain all the data include raw and processed of the project.
+- collector/ : contains 
+- dataset/ : contains all the data include raw and processed of the project.
 ## Citations
