@@ -97,5 +97,10 @@ python train.py \
 ```
 After finishing the training embeddings, you will get model files (*.h5) under the folder /output.
 
+## Evaluation
+For evaluation section, we can visualize scholar's knowledge in 2D space; and evaluate our model with other schemes (such as XGBoost, DNN). 
+
+-- Visualize knowledge 
+
 
 ## Citations
