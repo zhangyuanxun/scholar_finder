@@ -42,10 +42,9 @@ README.md
 
 ## Getting Started
 ### Data Collecting
-We collect two types of dataset: a) scholars' publications abstract which collects from Google Scholar; b NSF grant abstract from NSF grant dataset). 
-(Note, we have already provided processed dataset. it is not necessary to run the data collecting, unless you want to collect new dataset)
-
-- Collect scholars' publications abstract which collects from Google Scholar (This commands needs a few hours to collect)
+In the data collecting stage, we collect two types of the dataset: a) scholars' publications abstract which collects from Google Scholar; b NSF grant abstract from NSF grant dataset).  
+Finally, the collected dataset will be saved into the folder(/dataset/processed/). (Note, we have already collected the relevant dataset. it is not necessary to run the data collecting script unless you want to collect new dataset). 
+- Collect scholars' publications abstract which collects from Google Scholar (This commands needs a few hours to collect.)
 ```
 python data_collector.py --type pub
 ```
@@ -54,8 +53,15 @@ python data_collector.py --type pub
 python data_collector.py --type pub
 ```
 
-### Data Processing
+### Data Pre-Processing
+After the data collecting stage, we get scholar's publications' abstract and NSF grant abstract with text format. In the data pre-processing stage, we transform their format from text to Bag-of-Words,
+which allows us to train our deep learning model. Finally, the pre-processed dataset will be saved into the folder(/dataset/processed/). 
+(Note, we have provided a pre-processed dataset. it is not necessary to run the data pre-processing script unless you want to collect a new dataset. 
+If you try to run this script, please make sure you backup the original pre-processed datasets. Otherwise, it will override the original datasets). 
+```
+python data_preprocessor.py
+```
 
-### 
+### Train
 
 ## Citations
