@@ -161,5 +161,5 @@ if __name__ == "__main__":
     elif type == 'nsf':
         collect_grants_abstract()
     else:
-        parser.error('--type is not correct.')
+        parser.error('type is not correct.')
 

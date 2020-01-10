@@ -64,11 +64,35 @@ If you try to run this script, please make sure you backup the original pre-proc
 python data_preprocessor.py
 ```
 
-### Train the deep learning model
-The goal of our deep learning model is to capture the latent representation of scholars' knowledge and NSF grant abstracts. Because, the dataset used for training is Bag-of-Words format, 
-which is high dimensional datasets (more than 10,000 dimension) . It's hard to between two scholars or a scholar and a grant. Hence, we apply [Variational Autoencoder](https://arxiv.org/abs/1312.6114){target="_blank"} to capture latent
-representation or lower dimensional representation of knowledge (usually from 2~200 dimension that defined by user). 
+### Train the knowledge embedding model
+The goal of our knowledge embedding model is to capture the latent representation of scholars' knowledge and NSF grant abstracts. Because, the dataset used for training is Bag-of-Words format, 
+which is high dimensional datasets (more than 10,000 dimension) . It's hard to between two scholars or a scholar and a grant. Hence, we apply [Variational Autoencoder (VAE)](https://arxiv.org/abs/1312.6114) to capture latent
+representation or lower dimensional representation of knowledge (usually from 2~200 dimension that defined by user, and the 2 or 3 dimension representation is good for visualization). 
 
-
-
+We need to two steps to train the knowledge representation model: 
+- Train VAE model to capture latent representation of scholar's knowledge by specifying the parameter --type scholar. You also need
+ to specify the model_folder to save model file. You may adjust other parameters such as batch_size, num_epoch.
+```
+python train.py \
+  --type scholar \
+  --batch_size 128 \
+  --num_epoch 100 \
+  --latent_dim 50 \
+  --test_size 0.0 \
+  --load_model no \
+  --model_folder model_scholar_embedding
+```
+- Train VAE model to capture latent representation of NSF's knowledge by specifying the parameter --type nsf. You also need
+ to specify the model_folder to save model file and make sure it's different scholar embedding folder. 
+ You may adjust other parameters such as batch_size, num_epoch.
+```
+python train.py \
+  --type nsf \
+  --batch_size 128 \
+  --num_epoch 100 \
+  --latent_dim 50 \
+  --test_size 0.0 \
+  --load_model no \
+  --model_folder model_nsf_embedding
+```
 ## Citations
