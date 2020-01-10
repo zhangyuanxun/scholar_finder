@@ -10,6 +10,7 @@ test.py
 
 # add models folder not content
 /dataset/**/*.*
+/output/**/*.*
 /output/*.*
 !/output/*.gitkeep
 !/dataset/**/*.gitkeep
