@@ -16,12 +16,21 @@ dataset/
     processed/
     raw/
 model/
-    *.py
+    input_fn.py
+    model_fn.py
 output/
+eval/
 constants.py
-
+train.py
 README.md
 ```
-- collector/ : contains 
-- dataset/ : contains all the data include raw and processed of the project.
+- collector/ : contains all scripts to collector data from raw dataset (NSF Grant dataset) or from other websites (Google Scholar)
+- dataset/ : contains all the data include raw and processed of the project
+- model/ : defines the deep learning model pipeline 
+    - model/input_fn.py : defines the input data pipeline (which includes data pre-processing before model training.)
+    - model/model_fn.py : defines the deep learning model
+- output/ : contains all output files including pre-trained model files and experimental results
+- eval/ : contains utility functions to evaluate a model and compare with other models
+- constants.py : defines constants variables for the project
+- utils.py : 
 ## Citations
