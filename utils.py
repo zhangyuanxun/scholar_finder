@@ -205,14 +205,6 @@ def get_work_embedding():
         if len(k) <= 2:
             del word_vector[k]
 
-    # with open(VOCABULARY, 'r') as fp:
-    #     vocabs = fp.readlines()
-    # vocabs = [a.strip() for a in vocabs]
-    #
-    # for v in vocabs:
-    #     if v not in word_vector:
-    #         print v
-
     print "Total number of word is %d" % len(word_vector)
     return word_vector
 

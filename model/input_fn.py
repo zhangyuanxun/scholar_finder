@@ -31,7 +31,7 @@ def parse_fn(inputs, lables, names):
 
 
 def load_knowledge_bow_data(batch_size=64, test_size=0.2):
-    with open(DATASET_BOW, 'r') as fp:
+    with open(KNOWLEDGE_BOW, 'r') as fp:
         scholar_profiles = json.load(fp)
 
     with open(VOCABULARY, 'r') as fp:

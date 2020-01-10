@@ -7,9 +7,9 @@ RAW_NSF_GRANT_INVESTIGATORS = os.path.join(dirname(os.path.realpath(__file__)), 
 
 # Collected dataset path
 DATASET_PROCESSED_FOLDER = os.path.join(dirname(os.path.realpath(__file__)), 'dataset/processed/')
-SCHOLAR_PROFILES = os.path.join(dirname(os.path.realpath(__file__)), 'dataset/processed/scholar_profiles.json')
-SCHOLAR_PROFILES_INDEX = os.path.join(dirname(os.path.realpath(__file__)), 'dataset/processed/scholar_profiles_index.json')
-SCHOLAR_AWARDS = os.path.join(dirname(os.path.realpath(__file__)), 'dataset/processed/scholar_awards.json')
+SCHOLAR_PUBS = os.path.join(dirname(os.path.realpath(__file__)), 'dataset/processed/scholar_pubs.json')
+SCHOLAR_PUBS_INDEX = os.path.join(dirname(os.path.realpath(__file__)), 'dataset/processed/scholar_pubs_index.json')
+SCHOLAR_GRANTS = os.path.join(dirname(os.path.realpath(__file__)), 'dataset/processed/scholar_grants.json')
 TOP_SCHOLARS = os.path.join(dirname(os.path.realpath(__file__)), 'dataset/processed/top_scholars.txt')
 NSF_ABSTRACT_BY_ID = os.path.join(dirname(os.path.realpath(__file__)), 'dataset/processed/nsf_abstract_by_id.json')
 
@@ -19,10 +19,7 @@ VOCABULARY = os.path.join(dirname(os.path.realpath(__file__)), 'dataset/processe
 GLOVE_50D = os.path.join(dirname(os.path.realpath(__file__)), 'dataset/processed/glove.6B.50d.txt')
 
 # Dataset for training and testing
-DATASET_BOW = os.path.join(dirname(os.path.realpath(__file__)), 'dataset/processed/dataset_bow.json')
-DATASET_SEQ = os.path.join(dirname(os.path.realpath(__file__)), 'dataset/processed/dataset_seq.json')
-DATASET_SEQ_SEP = os.path.join(dirname(os.path.realpath(__file__)), 'dataset/processed/dataset_seq_sep.json')
-
+KNOWLEDGE_BOW = os.path.join(dirname(os.path.realpath(__file__)), 'dataset/processed/knowledge_bow.json')
 NSF_BOW = os.path.join(dirname(os.path.realpath(__file__)), 'dataset/processed/nsf_bow.json')
 
 # Output folder

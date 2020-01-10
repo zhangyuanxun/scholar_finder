@@ -4,13 +4,13 @@ import time
 import sys
 import matplotlib
 import platform
+import os
 if platform.system() == "Darwin":
     matplotlib.use('TkAgg')
 else:
     matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_pdf import PdfPages
-
 
 def xavier_init(fan_in, fan_out, constant=1):
     """ Xavier initialization of network weights"""
@@ -56,15 +56,18 @@ class VAE(object):
 
     Reference "Auto-Encoding Variational Bayes" by Kingma and Welling for more details.
     """
-    def __init__(self, input_dim, latent_dim, batch_size, num_epoch, num_sample, model_folder, load_mode):
+    def __init__(self, input_dim, latent_dim, batch_size, num_epoch, num_sample, model_folder, load_model):
         self.input_dim = input_dim
         self.latent_dim = latent_dim
         self.batch_size = batch_size
         self.num_epoch = num_epoch
         self.num_sample = num_sample
         self.model_folder = model_folder
-        self.load_mode = load_mode
+        self.load_model = load_model
         self._build_model()
+
+        if not os.path.exists(self.model_folder):
+            os.mkdir(self.model_folder)
 
     def _build_model(self):
         self.encoder = Encoder(self.latent_dim)
@@ -100,11 +103,11 @@ class VAE(object):
             # compute loss
             loss = self._compute_loss(X, X_hat, z_log_var, z_mean)
 
-        if self.load_mode:
+        if self.load_model:
             print "Load weights..."
             self.encoder.load_weights(self.model_folder + "knowledge_encoder.h5")
             self.decoder.load_weights(self.model_folder + "knowledge_decoder.h5")
-            self.load_mode = False
+            self.load_model = False
 
         trainable_variables = self.encoder.trainable_variables + self.decoder.trainable_variables
 
