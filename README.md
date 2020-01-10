@@ -64,10 +64,10 @@ If you try to run this script, please make sure you backup the original pre-proc
 python data_preprocessor.py
 ```
 
-### Train our deep learning model
+### Train the deep learning model
 The goal of our deep learning model is to capture the latent representation of scholars' knowledge and NSF grant abstracts. Because, the dataset used for training is Bag-of-Words format, 
-which is high dimensional datasets (more than 10,000 dimension) . It's hard to between two scholars or a scholar and a grant. Hence, we apply [Variational Autoencoder](https://arxiv.org/abs/1312.6114) to capture latent
-representation or lower dimensional representation of knowledge (usually from 2~200 dimension that defined by user)
+which is high dimensional datasets (more than 10,000 dimension) . It's hard to between two scholars or a scholar and a grant. Hence, we apply [Variational Autoencoder](https://arxiv.org/abs/1312.6114){target="_blank"} to capture latent
+representation or lower dimensional representation of knowledge (usually from 2~200 dimension that defined by user). 
 
 
 
