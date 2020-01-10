@@ -95,4 +95,7 @@ python train.py \
   --load_model no \
   --model_folder model_nsf_embedding
 ```
+After finishing the training embeddings, you will get model files (*.h5) under the folder /output.
+
+
 ## Citations
