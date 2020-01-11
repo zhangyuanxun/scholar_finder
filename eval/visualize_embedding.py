@@ -1,8 +1,6 @@
-from model.model_fn import *
-from model.input_fn import load_knowledge_bow_data
-from constants import *
 import matplotlib
 import os
+import sys
 import platform
 if platform.system() == "Darwin":
     matplotlib.use('TkAgg')
@@ -10,6 +8,11 @@ else:
     matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_pdf import PdfPages
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+
+from model.model_fn import *
+from model.input_fn import load_knowledge_bow_data
+from constants import *
 
 
 def visualize_embedding(model_path, num_scholar=15000):
@@ -65,8 +68,9 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
     model_folder, num_scholar = args.model_folder, args.num_scholar
+    print "Input parameters: " + model_folder, num_scholar
 
-    model_path = OUTPUT_FOLDER + model_folder
+    model_path = OUTPUT_FOLDER + model_folder + '/'
     if model_folder is None or not os.path.exists(model_path):
         parser.error('model folder is not correct.')
 

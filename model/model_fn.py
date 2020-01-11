@@ -12,7 +12,6 @@ else:
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_pdf import PdfPages
 
-
 def xavier_init(fan_in, fan_out, constant=1):
     """ Xavier initialization of network weights"""
     low = -constant*np.sqrt(6.0/(fan_in + fan_out))
