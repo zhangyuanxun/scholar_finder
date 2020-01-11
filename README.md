@@ -99,13 +99,15 @@ python train.py \
   --load_model no \
   --model_folder model_nsf_embedding
 ```
-After finishing the training embeddings, you will get model files (*.h5) under the folder /output.
+After finishing the training embeddings, you will get model files (*.h5) under the folder (/output). The model files have
+encoder model file (that maps dataset from high dimension to low dimension); and decoder model file (that construct dataset
+from low dimension to original dimension.)
 
 ## Evaluation
 For evaluation section, we can visualize scholar's knowledge embedding in 2D space; and evaluate our model with other schemes (such as XGBoost, DNN). 
 
 - Visualize scholar's knowledge embedding in 2D space. 
-    - Train scholar's knowledge embedding with latent-dim = 2
+    - First, train scholar's knowledge embedding with latent_dim = 2 to capture each scholar's latent representation
         ```
         python train.py \
           --type scholar \
@@ -116,5 +118,10 @@ For evaluation section, we can visualize scholar's knowledge embedding in 2D spa
           --load_model no \
           --model_folder model_scholar_embedding_2d
         ```
-
+    - Second, use encoder model to map each scholar's abstract into 2D space, and visualize it.
+        ```
+        python visualize_embedding.py \
+          --num_scholar 1500 \
+          --model_folder model_scholar_embedding_2d
+        ```
 ## Citations
