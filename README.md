@@ -121,7 +121,7 @@ For evaluation section, we can visualize scholar's knowledge embedding in 2D spa
     - Second, use encoder model to map each scholar's abstract into 2D space, and visualize it.
         ```
         python visualize_embedding.py \
-          --num_scholar 1500 \
+          --num_scholar 15000 \
           --model_folder model_scholar_embedding_2d
         ```
 ## Citations
