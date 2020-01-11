@@ -114,7 +114,7 @@ For evaluation section, we can visualize scholar's knowledge embedding in 2D spa
           --latent_dim 2 \
           --test_size 0.0 \
           --load_model no \
-          --model_folder model_scholar_embedding
+          --model_folder model_scholar_embedding_2d
         ```
 
 ## Citations
