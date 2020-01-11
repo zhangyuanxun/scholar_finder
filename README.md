@@ -105,6 +105,16 @@ After finishing the training embeddings, you will get model files (*.h5) under t
 For evaluation section, we can visualize scholar's knowledge embedding in 2D space; and evaluate our model with other schemes (such as XGBoost, DNN). 
 
 - Visualize scholar's knowledge embedding in 2D space. 
-    a) fasdfa
+    - Train scholar's knowledge embedding with latent-dim = 2
+        ```
+        python train.py \
+          --type scholar \
+          --batch_size 128 \
+          --num_epoch 100 \
+          --latent_dim 2 \
+          --test_size 0.0 \
+          --load_model no \
+          --model_folder model_scholar_embedding
+        ```
 
 ## Citations
