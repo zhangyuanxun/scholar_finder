@@ -12,11 +12,11 @@ This implements the algorithms that describe in the paper "ScholarFinder: Knowle
 
 ## Structure of the code
 ```
-collector/
-    *.py
 dataset/
     processed/
     raw/
+eval/
+    *.py
 model/
     input_fn.py
     model_fn.py
@@ -31,12 +31,12 @@ utils.py
 README.md
 ```
 - dataset/ : contains all the data include raw and processed of the project
+- eval/ : contains utility functions to evaluate the model or to generate experimental results
 - model/ : defines the deep learning model pipeline 
     - model/input_fn.py : defines the input data pipeline (which includes data pre-processing before model training.)
     - model/model_fn.py : defines the deep learning model
 - output/ : contains all output files including pre-trained model files and experimental results
 - scripts/ : contains scripts for training deep learning model in HPC using Slurm
-- eval/ : contains utility functions to evaluate the model and to generate experimental results
 - constants.py : defines constants variables for the project
 - data_collector: utility to collect data from raw dataset (NSF Grant dataset) or from other websites (Google Scholar)
 - data_preprocessor.py : utility functions to preprocess dataset
@@ -105,6 +105,6 @@ After finishing the training embeddings, you will get model files (*.h5) under t
 For evaluation section, we can visualize scholar's knowledge embedding in 2D space; and evaluate our model with other schemes (such as XGBoost, DNN). 
 
 - Visualize scholar's knowledge embedding in 2D space. 
-
+    a) fasdfa
 
 ## Citations
