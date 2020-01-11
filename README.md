@@ -124,7 +124,8 @@ For evaluation section, we can visualize scholar's knowledge embedding in 2D spa
           --num_scholar 15000 \
           --model_folder model_scholar_embedding_2d
         ```
-     After executing the two commands above, you will get embedding plots saved in your model folder as shown below.
+    After executing the two commands above, you will get a 15000 scholars' knowledge embedding plot saved in your model folder,
+    which will be similar to the plot shown below:
      <p align="center">
      <img src="https://github.com/zhangyuanxun/scholar_finder/blob/master/figs/scholar_embedding.jpg" width="400px"/>
      </p>
