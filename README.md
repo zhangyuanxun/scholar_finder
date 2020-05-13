@@ -8,7 +8,7 @@ This implements the algorithms that describe in the paper "ScholarFinder: Knowle
 - XGBoost: 0.82
 - Keras: 2.2.5
 - matplotlib: 2.2.4
-- scikit-learn 0.20.4.
+- scikit-learn 0.20.4
 
 ## Structure of the code
 ```
@@ -103,6 +103,9 @@ After finishing the training embeddings, you will get model files (*.h5) under t
 encoder model file (that maps dataset from high dimension to low dimension); and decoder model file (that construct dataset
 from low dimension to original dimension.)
 
+We can use pre-trained knowledge embedding for scholars and nsf grants to build another deep learning model for predicting
+whether a scholar is suitable for a particular nsf grant. We will introduce this in evaluation section.
+
 ## Evaluation
 For evaluation section, we can visualize scholar's knowledge embedding in 2D space; and evaluate our model with other schemes (such as XGBoost, DNN). 
 
@@ -124,10 +127,35 @@ For evaluation section, we can visualize scholar's knowledge embedding in 2D spa
           --num_scholar 15000 \
           --model_folder model_scholar_embedding_2d
         ```
-    After executing the two commands above, you will get a 15000 scholars' knowledge embedding plot saved in your model folder,
+    After executing the two commands above, you will get a 15000 scholars' knowledge embedding 2D plot saved in the model folder,
     which will be similar to the plot shown below:
      <p align="center">
      <img src="https://github.com/zhangyuanxun/scholar_finder/blob/master/figs/scholar_embedding.jpg" width="400px"/>
      </p>
      
+- Evaluating scholar's knowledge for predicting whether a scholar is suitable for the a particular task. 
+    - First, train scholar's knowledge embedding
+        ```
+        python train.py \
+          --type scholar \
+          --batch_size 128 \
+          --num_epoch 100 \
+          --latent_dim 50 \
+          --test_size 0.0 \
+          --load_model no \
+          --model_folder model_scholar_embedding
+        ```     
+    - Second, train nsf grant embedding
+        ```
+        python train.py \
+          --type nsf \
+          --batch_size 128 \
+          --num_epoch 100 \
+          --latent_dim 50 \
+          --test_size 0.0 \
+          --load_model no \
+          --model_folder model_nsf_embedding
+        ```    
+    - Third, build a deep learning model for predicting whether a scholar is suitable for the a particular task. 
+    
 ## Citations
