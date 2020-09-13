@@ -13,13 +13,13 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from model.model_fn import *
 from model.input_fn import load_knowledge_bow_data
 from constants import *
+from sklearn.manifold import TSNE
 
 
-def visualize_embedding(model_path, num_scholar=15000):
+def visualize_embedding(model_path, latent_dim, num_scholar=15000):
     # set tensorflow as eager mode
     tf.enable_eager_execution()
 
-    latent_dim = 2
     inputs_data = load_knowledge_bow_data(batch_size=num_scholar, test_size=0.0)
     dataset = inputs_data['train']['dataset']
 
@@ -42,12 +42,14 @@ def visualize_embedding(model_path, num_scholar=15000):
         z_mean, z_log_var = encoder_model(X)
         z = tf.add(z_mean, tf.sqrt(tf.exp(z_log_var))).numpy()
 
+        z_embedded = TSNE(n_components=2).fit_transform(z)
+
         # plot embedding
         fig, ax = plt.subplots(figsize=(10, 10))
         import matplotlib as mpl
         mpl.rcParams['axes.linewidth'] = 10  # set the value globally
 
-        ax.scatter(z[:, 0], z[:, 1], c='black', s=2, edgecolors="black")
+        ax.scatter(z_embedded[:, 0], z_embedded[:, 1], c='black', s=2, edgecolors="black")
         ax.grid(False)
         fig.tight_layout()
         plt.show()
@@ -63,15 +65,16 @@ if __name__ == "__main__":
     # parse arguments
     parser = argparse.ArgumentParser(description="Description of visualizing scholar's knowledge embedding")
     parser.add_argument("--model_folder", type=str, help='Set the name of model folder to load pre-trained model')
+    parser.add_argument("--latent_dim", type=int, help='Set the number of latent dimension')
     parser.add_argument("--num_scholar", help='Set number of scholar for visualization (default = %(default)s)',
                         type=int, default=10000, choices=range(1, 15001), metavar='(1, ..., 15000)')
 
     args = parser.parse_args()
-    model_folder, num_scholar = args.model_folder, args.num_scholar
-    print "Input parameters: " + model_folder, num_scholar
+    model_folder, num_scholar, latent_dim = args.model_folder, args.num_scholar, args.latent_dim
+    print "Input parameters: " + model_folder, num_scholar, latent_dim
 
     model_path = OUTPUT_FOLDER + model_folder + '/'
     if model_folder is None or not os.path.exists(model_path):
         parser.error('model folder is not correct.')
 
-    visualize_embedding(model_path, num_scholar)
+    visualize_embedding(model_path, latent_dim, num_scholar)

@@ -109,14 +109,14 @@ whether a scholar is suitable for a particular nsf grant. We will introduce this
 ## Evaluation
 For evaluation section, we can visualize scholar's knowledge embedding in 2D space; and evaluate our model with other schemes (such as XGBoost, DNN). 
 
-- Visualize scholar's knowledge embedding in 2D space. 
+- Visualize scholar's knowledge embedding in 2D space. Here, we use tSNE algorithm to map the high dimensional latent space to 2Dspace
     - First, train scholar's knowledge embedding with latent_dim = 2 to capture each scholar's latent representation
         ```
         python train.py \
           --type scholar \
           --batch_size 128 \
           --num_epoch 100 \
-          --latent_dim 2 \
+          --latent_dim 50 \
           --test_size 0.0 \
           --load_model no \
           --model_folder model_scholar_embedding_2d
@@ -125,6 +125,7 @@ For evaluation section, we can visualize scholar's knowledge embedding in 2D spa
         ```
         python visualize_embedding.py \
           --num_scholar 15000 \
+          --latent_dim 50 \
           --model_folder model_scholar_embedding_2d
         ```
     After executing the two commands above, you will get a 15000 scholars' knowledge embedding 2D plot saved in the model folder,
