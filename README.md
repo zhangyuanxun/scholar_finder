@@ -160,3 +160,13 @@ For evaluation section, we can visualize scholar's knowledge embedding in 2D spa
     - Third, build a deep learning model for predicting whether a scholar is suitable for the a particular task. 
     
 ## Citations
+```
+@inproceedings{zhang2020scholarfinder,
+  title={ScholarFinder: Knowledge Embedding Based Recommendations using a Deep Generative Model},
+  author={Zhang, Yuanxun and Sivarathri, Sai Swathi and Calyam, Prasad},
+  booktitle={2020 IEEE Sixth International Conference on Big Data Computing Service and Applications (BigDataService)},
+  pages={88--95},
+  year={2020},
+  organization={IEEE}
+}
+```
